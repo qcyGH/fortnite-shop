@@ -1,0 +1,109 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Roboto Mono';
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'SF Pro Display', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* container alternative */
+/* https://habr.com/ru/post/463923/ */
+
+section{
+  padding: 25px 15px;
+}
+
+@media (min-width: 575.98px){
+  section {
+    padding: 25px calc(50% - 270px);
+  }
+}
+
+@media (min-width: 767.98px){
+  section {
+    padding: 25px calc(50% - 360px);
+  }
+}
+
+@media (min-width: 991.98px) {
+  section {
+    padding: 25px calc(50% - 480px);
+  }
+}
+
+@media (min-width: 1199.98px){
+  section {
+    padding: 25px calc(50% - 590px);
+  }
+}
+
+/* container alternative */
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+a {
+  opacity: 0.7;
+}
+
+a.active {
+  opacity: 1;
+}
+
+/* Slider */
+
+.swiper {
+  margin: 0;
+}
+
+.swiper-button-next, .swiper-button-prev {
+	width: calc(22px/ 44 * 27);
+	height: 22px;
+	margin-top: calc(0px - (22px/ 2));
+	color: #9d4dbb;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+	font-size: 22px;
+}
+
+.swiper-pagination-bullet {
+  border-radius: 5rem;
+	width: 8px;
+	height: 8px;
+	background: #9d4dbb;
+
+  transition: width 300ms ease;
+}
+
+.swiper-pagination-bullet-active {
+	width: 16px;
+	background: #9d4dbb;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+	bottom: 55px;
+}
+
+.cart__item .swiper-horizontal > .swiper-pagination-bullets {
+	bottom: 0px;
+}
+
+/* Slider */
