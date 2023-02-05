@@ -102,8 +102,11 @@ a.active {
 	bottom: 55px;
 }
 
-.cart__item .swiper-horizontal > .swiper-pagination-bullets {
-	bottom: 0px;
+@media screen and (min-width: 768px) {
+  .cart__item .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: 0;
+  }
+
 }
 
 /* Slider */

@@ -32,7 +32,7 @@ export function CartItem(props) {
 
     return (
         <div className='relative flex flex-col md:flex-row justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
-            <div className='flex'>
+            <div className='flex flex-col md:flex-row'>
                 <div className='overflow-hidden bg-transparent aspect-none'>
                     <img
                         src={image}
@@ -123,7 +123,7 @@ export function CartItemSlider(props) {
             {
                 items.map(item => (
                     <SwiperSlide key={item.id}>
-                        <div className='flex'>
+                        <div className='flex flex-col md:flex-row'>
                             <div className='overflow-hidden bg-transparent aspect-none'>
                                 {
                                     item.images?.featured ? <img
