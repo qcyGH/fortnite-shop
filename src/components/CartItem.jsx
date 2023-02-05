@@ -31,7 +31,7 @@ export function CartItem(props) {
     }, [count])
 
     return (
-        <div className='relative flex justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
+        <div className='relative flex flex-col md:flex-row justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
             <div className='flex'>
                 <div className='overflow-hidden bg-transparent aspect-none'>
                     <img
@@ -49,7 +49,7 @@ export function CartItem(props) {
                     </span>
                 </div>
             </div>
-            <div className='flex flex-col mt-4'>
+            <div className='flex flex-col mt-4 mb-20 lg:mb-0'>
                 <div className='pl-2 pr-4 py-1 bg-zinc-400/30 dark:bg-zinc-700/30 hover:bg-zinc-400/50 dark:hover:bg-zinc-700/50 rounded-md transition-color duration-100'>
                     {finalPrice} * {quantity} = {finalPrice * quantity}
                 </div>
@@ -106,7 +106,7 @@ export function CartItemSlider(props) {
     }, [count])
 
     return (
-        <div className='cart__item relative flex justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
+        <div className='cart__item relative flex flex-col md:flex-row justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
             <Swiper
                     className='max-w-[512px]'
                     modules={[Navigation, Pagination, Autoplay, Mousewheel]}
@@ -151,7 +151,7 @@ export function CartItemSlider(props) {
             }
 
             </Swiper>
-            <div className='flex flex-col mt-4'>
+            <div className='flex flex-col mt-4 mb-20 lg:mb-0'>
                 <div className='pl-2 pr-4 py-1 bg-zinc-400/30 dark:bg-zinc-700/30 hover:bg-zinc-400/50 dark:hover:bg-zinc-700/50 rounded-md transition-color duration-100'>
                     {finalPrice} * {quantity} = {finalPrice * quantity}
                 </div>

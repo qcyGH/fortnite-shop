@@ -60,22 +60,22 @@ export function MobileMenu() {
                     <DrawerBody>
                         <ul className='flex flex-col text-lg'>
                             <li className='mb-4'>
-                                <NavLink to='/' end className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <NavLink to='/' end className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     Home
                                 </NavLink>
                             </li>
                             <li className='mb-4'>
-                                <NavLink to='/news' end className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <NavLink to='/news' end className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     News
                                 </NavLink>
                             </li>
                             <li className='mb-4'>
-                                <NavLink to='/cart' className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <NavLink to='/cart' className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     Cart
                                 </NavLink>
                             </li>
                             <li className='mb-4'>
-                                <NavLink to='/faq' className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <NavLink to='/faq' className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     FAQ
                                 </NavLink>
                             </li>

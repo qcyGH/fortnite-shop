@@ -68,9 +68,9 @@ export function CardSlider(props) {
     const { name } = items[0]
 
     return (
-            <div className='flex flex-col relative max-w-[264px] justify-between bg-zinc-200 dark:bg-zinc-800 rounded-lg shadow-lg shadow-zinc-400/50 dark:shadow-zinc-900/50 w-max h-max hover:shadow-none hover:scale-95 transition-all duration-150 ease-in'>
+            <div className='flex flex-col relative max-w-[288px] justify-between bg-zinc-200 dark:bg-zinc-800 rounded-lg shadow-lg shadow-zinc-400/50 dark:shadow-zinc-900/50 w-max h-max hover:shadow-none hover:scale-95 transition-all duration-150 ease-in'>
                 <Swiper
-                    className='max-w-[264px]'
+                    className='max-w-[288px]'
                     modules={[Navigation, Pagination, Autoplay, Mousewheel]}
                     spaceBetween={50}
                     slidesPerView={1}
@@ -112,7 +112,7 @@ export function CardSlider(props) {
                 </Swiper>
                 <button
                     onClick={() => addItem({name, items, id, finalPrice})}
-                    className='flex flex-col place-self-center group relative overflow-hidden text-gray-100 bg-gray-800 dark:text-gray-900 dark:bg-gray-300 px-10 pt-5 pb-1 mt-4 mb-2 rounded-md hover:pt-3 hover:pb-3 active:scale-90 transition-all ease duration-200'
+                    className='flex flex-col place-self-center group relative overflow-hidden text-gray-100 bg-gray-800 dark:text-gray-900 dark:bg-gray-300 px-10 pt-5 pb-1 mt-4 mb-5 rounded-md hover:pt-3 hover:pb-3 active:scale-90 transition-all ease duration-200'
                     >
                     <span className='text-sm text-gray-200 bg-green-700 w-[101%] absolute top-0 left-[50%] translate-x-[-50%] group-hover:translate-y-[-100%] transition-transform ease- duration-200'>
                         {finalPrice} V-Bucks
