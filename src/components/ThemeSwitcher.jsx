@@ -12,7 +12,7 @@ export function ThemeSwitcher() {
 
     const changeTheme = () => {
         // play sound click
-        playActive()
+        playSound()
 
         // отримуємо поточну тему
         let currentTheme = htmlBlock.classList.contains('light') ? 'light' : 'dark'
@@ -64,7 +64,7 @@ export function ThemeSwitcher() {
 
     }, [darkTheme])
 
-    const [playActive] = useSound(
+    const [playSound] = useSound(
         clickSfx,
         { volume: 0.5 }
     )

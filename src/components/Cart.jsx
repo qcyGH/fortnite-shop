@@ -3,10 +3,18 @@ import { Icon, IconButton } from '@chakra-ui/react'
 import { StoreProvider } from '../hoc/StoreProvider'
 import { CartModal } from './CartModal'
 
+import useSound from 'use-sound'
+import clickSfx from '.././sounds/sine-click.mp3'
+
 export function Cart(props) {
     const { orderList } = useContext(StoreProvider)
     const [showModal, setShowModal] = useState(false)
     const cartRef = useRef(null)
+
+    const [playSound] = useSound(
+        clickSfx,
+        { volume: 0.5 }
+    )
 
     const CartIcon = (props) => (
         <Icon viewBox='0 0 18 17' {...props}>
@@ -36,7 +44,10 @@ export function Cart(props) {
                     _active={{ bg: 'transparent' }}
                     _hover={{ bg: 'transparent' }}
                     aria-label='cart'
-                    onClick={() => setShowModal((prevState) => !prevState)}
+                    onClick={() => {
+                        playSound()
+                        setShowModal((prevState) => !prevState)
+                    }}
                     className='text-zinc-900 dark:text-zinc-100'
                     icon={
                         <CartIcon w={18} h={17} />

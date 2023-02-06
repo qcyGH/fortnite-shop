@@ -2,10 +2,18 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Icon, IconButton } from '@chakra-ui/react'
 import { UserModal } from './UserModal'
 
+import useSound from 'use-sound'
+import clickSfx from '.././sounds/sine-click.mp3'
+
 export function User(props) {
 
     const [showModal, setShowModal] = useState(false)
     const userRef = useRef(null)
+
+    const [playSound] = useSound(
+        clickSfx,
+        { volume: 0.5 }
+    )
 
     const UserIcon = (props) => (
         <Icon viewBox='0 0 18 18' fill='none' {...props}>
@@ -38,7 +46,10 @@ export function User(props) {
                         _active={{ bg: 'transparent' }}
                         _hover={{ bg: 'transparent' }}
                         aria-label='user'
-                        onClick={() => setShowModal((prevState) => !prevState)}
+                        onClick={() => {
+                            playSound()
+                            setShowModal((prevState) => !prevState)
+                        }}
                         className='text-zinc-900 dark:text-zinc-100'
                         icon={
                             <UserIcon w={18} h={18} />

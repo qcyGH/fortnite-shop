@@ -2,6 +2,8 @@ import React, { useState, useEffect, createContext } from 'react'
 import { API_KEY, API_URL_SHOP } from '../config'
 import { useToast } from '@chakra-ui/react'
 import { useAuth } from '../hooks/useAuth'
+import useSound from 'use-sound'
+import clickSfx from '.././sounds/sine-click.mp3'
 
 export const StoreProvider = createContext()
 
@@ -11,6 +13,11 @@ export function StoreContext(props) {
     const [orderList, setOrderList] = useState([])
     const notification = useToast()
     const { user } = useAuth()
+
+    const [playSound] = useSound(
+        clickSfx,
+        { volume: 0.5 }
+    )
 
     // get items from API
     useEffect(function getItems() {
@@ -29,6 +36,8 @@ export function StoreContext(props) {
 
     // function for adding item to order
     const addItem = (item) => {
+        playSound()
+
         const itemIndex = orderList.findIndex(orderItem => orderItem.id === item.id)
 
         if (itemIndex < 0) {
@@ -56,11 +65,13 @@ export function StoreContext(props) {
 
     // function for removing item from order
     const removeItem = (id) => {
+        playSound()
         setOrderList(orderList.filter((item) => item.id !== id))
     }
 
     // function for increment or decrement item count in order
     const changeQuantity = (item, count) => {
+        playSound()
         const itemIndex = orderList.findIndex(orderItem => orderItem.id === item.id)
 
 
@@ -89,6 +100,8 @@ export function StoreContext(props) {
     }
 
     const makePurchase = () => {
+
+        playSound()
 
         notification({
             title: `Congratulations, ${user} All items was added to your Fortnite account`,

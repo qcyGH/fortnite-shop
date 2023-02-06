@@ -5,6 +5,9 @@ import { StoreProvider } from '../hoc/StoreProvider'
 import { CartItem, CartItemSlider } from '../components/CartItem'
 import { ChakraProvider } from '@chakra-ui/react'
 
+import useSound from 'use-sound'
+import clickSfx from '.././sounds/sine-click.mp3'
+
 export function CartPage() {
 
     const { orderList, makePurchase } = useContext(StoreProvider)
@@ -24,6 +27,11 @@ export function CartPage() {
     useEffect(() => {
         calcTotalPrice()
     }, [orderList])
+
+    const [playSound] = useSound(
+        clickSfx,
+        { volume: 0.5 }
+    )
 
     return (
         <>
@@ -62,7 +70,7 @@ export function CartPage() {
                 transition-color duration-150'>
                     Cart is empty
                 </span>
-                <Link to='/' className='opacity-100 text-slate-100 bg-orange-600 width-max px-6 py-2 my-2 rounded-md hover:scale-95 active:scale-90 transition-all ease duration-200'>Go to store page</Link>
+                <Link onClick={() => playSound()} to='/' className='opacity-100 text-slate-100 bg-orange-600 width-max px-6 py-2 my-2 rounded-md hover:scale-95 active:scale-90 transition-all ease duration-200'>Go to store page</Link>
             </div>
             }
             <ChakraProvider>
