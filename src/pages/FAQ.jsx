@@ -34,13 +34,15 @@ export function FAQPage() {
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
-                                Is it official Epic shop?
+                                GitHub page?
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
                     <AccordionPanel className='text-base text-gray-600 dark:text-gray-300 mt-2 transition-color duration-150 ease-in' pb={4}>
-                        No, It`s just a my own project to learn React, API and SPA. Enjoy that ^_~
+                        <a href='https://github.com/qcyGH/fortnite-shop'>
+                            https://github.com/qcyGH/fortnite-shop
+                        </a>
                     </AccordionPanel>
                 </AccordionItem>
 
@@ -48,13 +50,15 @@ export function FAQPage() {
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
-                                Is it official Epic shop?
+                                API page?
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
                     <AccordionPanel className='text-base text-gray-600 dark:text-gray-300 mt-2 transition-color duration-150 ease-in' pb={4}>
-                        No, It`s just a my own project to learn React, API and SPA. Enjoy that ^_~
+                        <a href='https://fortnite-api.com/'>
+                            https://fortnite-api.com/
+                        </a>
                     </AccordionPanel>
                 </AccordionItem>
 
@@ -62,13 +66,13 @@ export function FAQPage() {
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
-                                Is it official Epic shop?
+                                Is it shop working?
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
                     <AccordionPanel className='text-base text-gray-600 dark:text-gray-300 mt-2 transition-color duration-150 ease-in' pb={4}>
-                        No, It`s just a my own project to learn React, API and SPA. Enjoy that ^_~
+                        No, only frontend ❤️
                     </AccordionPanel>
                 </AccordionItem>
 
@@ -76,41 +80,13 @@ export function FAQPage() {
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
-                                Is it official Epic shop?
+                                Does the site collect any information about me?
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
                     <AccordionPanel className='text-base text-gray-600 dark:text-gray-300 mt-2 transition-color duration-150 ease-in' pb={4}>
-                        No, It`s just a my own project to learn React, API and SPA. Enjoy that ^_~
-                    </AccordionPanel>
-                </AccordionItem>
-
-                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 px-5 py-1 transition-all duration-150 ease-in'>
-                    <h2>
-                        <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
-                            <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
-                                Is it official Epic shop?
-                            </Box>
-                            <AccordionIcon />
-                        </AccordionButton>
-                    </h2>
-                    <AccordionPanel className='text-base text-gray-600 dark:text-gray-300 mt-2 transition-color duration-150 ease-in' pb={4}>
-                        No, It`s just a my own project to learn React, API and SPA. Enjoy that ^_~
-                    </AccordionPanel>
-                </AccordionItem>
-
-                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 px-5 py-1 transition-all duration-150 ease-in'>
-                    <h2>
-                        <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
-                            <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
-                                Is it official Epic shop?
-                            </Box>
-                            <AccordionIcon />
-                        </AccordionButton>
-                    </h2>
-                    <AccordionPanel className='text-base text-gray-600 dark:text-gray-300 mt-2 transition-color duration-150 ease-in' pb={4}>
-                        No, It`s just a my own project to learn React, API and SPA. Enjoy that ^_~
+                        No, i don`t need it 〜(￣▽￣〜)
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
