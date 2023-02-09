@@ -15,7 +15,11 @@ import { RequireAuth } from './hoc/RequireAuth'
 import { StoreContext } from './hoc/StoreProvider'
 import { NewsContext } from './hoc/NewsProvider'
 
+import { useGetItemsQuery } from './store/fortniteApi'
+
 export function App() {
+
+    const {} = useGetItemsQuery()
 
     return (
         <AuthProvider>
