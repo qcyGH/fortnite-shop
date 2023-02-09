@@ -1,4 +1,5 @@
 import { ChakraProvider } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
 
 import { Card, CardSlider } from './Card'
 
@@ -8,8 +9,13 @@ import 'swiper/css/pagination'
 import 'swiper/css/autoplay'
 import 'swiper/css/mousewheel'
 
-export function List(props) {
-    const { items = [] } = props
+export function List() {
+    // get item from storage
+    const { data, status } = useSelector(state => state.shop.items)
+
+    if (status != 200) {
+        return <></>
+    }
 
     return (
         <ChakraProvider>
@@ -18,7 +24,7 @@ export function List(props) {
             </h2>
             <div className='mt-3 grid justify-items-center grid-cols-1 gap-y-10 gap-x-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8'>
                 {
-                    items.daily?.entries?.map(item => (
+                    data.daily?.entries?.map(item => (
                         item.bundle && <Card
                                             id={item.offerId}
                                             key={item.offerId}
@@ -31,7 +37,7 @@ export function List(props) {
                     ))
                 }
                 {
-                    items.daily?.entries?.map(item => (
+                    data.daily?.entries?.map(item => (
                         (!item.bundle && item.items[1]) ? <CardSlider
                                                                 items={item.items}
                                                                 key={item.offerId} id={item.offerId}
@@ -53,7 +59,7 @@ export function List(props) {
             </h2>
             <div className='mt-3 grid justify-items-center grid-cols-1 gap-y-10 gap-x-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8'>
                 {
-                    items.featured?.entries?.map(item => (
+                    data.featured?.entries?.map(item => (
                         item.bundle && <Card
                                             id={item.offerId}
                                             key={item.offerId}
@@ -66,7 +72,7 @@ export function List(props) {
                     ))
                 }
                 {
-                    items.featured?.entries?.map(item => (
+                    data.featured?.entries?.map(item => (
                         (!item.bundle && item.items[1]) ? <CardSlider
                                                                 items={item.items}
                                                                 key={item.offerId} id={item.offerId}
@@ -88,7 +94,7 @@ export function List(props) {
             </h2>
             <div className='mt-3 grid justify-items-center grid-cols-1 gap-y-10 gap-x-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8'>
                 {
-                    items.specialFeatured?.entries?.map(item => (
+                    data.specialFeatured?.entries?.map(item => (
                         item.bundle && <Card
                                             id={item.offerId}
                                             key={item.offerId}
@@ -101,7 +107,7 @@ export function List(props) {
                     ))
                 }
                 {
-                    items.specialFeatured?.entries?.map(item => (
+                    data.specialFeatured?.entries?.map(item => (
                         (!item.bundle && item.items[1]) ? <CardSlider
                                                                 items={item.items}
                                                                 key={item.offerId} id={item.offerId}

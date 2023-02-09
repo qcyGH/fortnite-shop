@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 import { Shop } from './pages/Shop'
@@ -15,11 +15,7 @@ import { RequireAuth } from './hoc/RequireAuth'
 import { StoreContext } from './hoc/StoreProvider'
 import { NewsContext } from './hoc/NewsProvider'
 
-import { useGetItemsQuery } from './store/fortniteApi'
-
 export function App() {
-
-    const {} = useGetItemsQuery()
 
     return (
         <AuthProvider>

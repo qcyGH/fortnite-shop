@@ -23,19 +23,19 @@ const shopSlice = createSlice({
     reducers: {
         addItem(state, action) {
 
-            const [playSound] = useSound(
-                clickSfx,
-                { volume: 0.5 }
-            )
+            // const [playSound] = useSound(
+            //     clickSfx,
+            //     { volume: 0.5 }
+            // )
 
-            playSound()
+            // playSound()
 
             const item = action.payload.item
 
             const itemIndex = state.orderList.findIndex(orderItem => orderItem.id === item.id)
 
             if (itemIndex < 0) {
-                showNotification(item.name)
+                //showNotification(item.name)
 
                 state.orderList.push({
                     ...item,
@@ -44,7 +44,7 @@ const shopSlice = createSlice({
 
             } else {
 
-                state.orderList.map((orderItem, index) => {
+                const newOrderList = state.orderList.map((orderItem, index) => {
                     if (index === itemIndex) {
                         return {
                             ...orderItem,
@@ -54,6 +54,8 @@ const shopSlice = createSlice({
                         return orderItem
                     }
                 })
+
+                state.orderList = newOrderList
             }
 
         },
@@ -110,10 +112,15 @@ const shopSlice = createSlice({
             })
 
             state.orderList = []
+        },
+        fetchItems(state, action) {
+            if (action.payload.data) {
+                state.items = action.payload.data
+            }
         }
     },
 })
 
-export const { addItem, removeItem, changeQuantity, makePurchase } = shopSlice.actions
+export const { addItem, removeItem, changeQuantity, makePurchase, fetchItems } = shopSlice.actions
 
 export default shopSlice.reducer
