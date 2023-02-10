@@ -53,15 +53,17 @@ export function CartModal(props) {
             '>
             {
                 items.length > 0
-                ? <div className='flex flex-col items-end pt-4 pb-2'>
+                ? <div className='flex flex-col items-end pt-5 pb-2'>
+                    <div>
                         {
                             items.map(item => (
-                                <div key={item.id} className='grid auto-rows-max grid-cols-8 gap-x-4 gap-y-2.5 py-4 px-4'>
-                                    <div className='col-span-5 pl-2 pr-4 py-2 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
-                                        {item.name}
+                                <div key={item.id} className='flex relative py-4 px-4 pr-12'>
+                                    <div className='bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 overflow-hidden rounded-md transition-color duration-100'>
+                                        <img className='w-20 h-20' src={item.image} alt={item.name} />
                                     </div>
-                                    <div className='col-span-2 pl-2 pr-4 py-2 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
-                                        {item.finalPrice} V-Bucks
+                                    <div className='flex flex-col pl-3 pr-4 py-2'>
+                                        <span>{item.name}</span>
+                                        <span className='text-sm opacity-75'>{item.finalPrice} V-Bucks</span>
                                     </div>
                                     <IconButton
                                         aria-label='Remove item'
@@ -71,14 +73,16 @@ export function CartModal(props) {
                                         minW={0}
                                         w={10}
                                         h={10}
+                                        position='absolute'
                                         icon={<CloseIcon w={3} h={3}/>}
-                                        className='text-zinc-200 rounded-md'
+                                        className='text-zinc-200 rounded-md top-0 right-0 translate-y-[43%]'
                                         onClick={() => dispatch(removeItem(item.id))}
                                     >
                                     </IconButton>
                                 </div>
                             ))
                         }
+                    </div>
                     <span className='opacity-75 block text-right pr-2'>Total price: {totalPrice}</span>
                     <Link
                         to='/cart'
