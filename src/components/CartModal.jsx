@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef, useContext } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { IconButton, CloseButton } from '@chakra-ui/react'
 import { CloseIcon } from '@chakra-ui/icons'
 import { useDispatch } from 'react-redux'
 import { removeItem } from '../store/shopSlice'
+
+import useSound from 'use-sound'
+import clickSfx from '.././sounds/sine-click.mp3'
 
 export function CartModal(props) {
     const { items = [], show, closeModalOutside, closeModal } = props
@@ -41,6 +44,11 @@ export function CartModal(props) {
 
     const dispatch = useDispatch()
 
+    const [playSound] = useSound(
+        clickSfx,
+        { volume: 0.5 }
+    )
+
     if (!show) return null
 
     return (
@@ -59,7 +67,7 @@ export function CartModal(props) {
                             items.map(item => (
                                 <div key={item.id} className='flex relative py-4 px-4 pr-12'>
                                     <div className='bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 overflow-hidden rounded-md transition-color duration-100'>
-                                        <img className='w-20 h-20' src={item.image} alt={item.name} />
+                                        <img className='w-20 h-20' src={item.image || item.items[0].images.featured} alt={item.name} />
                                     </div>
                                     <div className='flex flex-col pl-3 pr-4 py-2'>
                                         <span>{item.name}</span>
@@ -85,6 +93,7 @@ export function CartModal(props) {
                     </div>
                     <span className='opacity-75 block text-right pr-2'>Total price: {totalPrice}</span>
                     <Link
+                        onClick={() => playSound()}
                         to='/cart'
                         className='w-max opacity-100 text-slate-100 bg-orange-600 mt-6 px-6 py-2 my-2 rounded-md hover:scale-95 active:scale-90 transition-all ease duration-200'
                     >

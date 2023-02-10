@@ -17,17 +17,15 @@ export function Card(props) {
         id,
         name,
         description,
-        img,
-        icon,
+        images,
+        image,
         bundle,
         finalPrice,
     } = props
 
-    const image = img ? img : icon
-
     const item = {
         name: name,
-        image: image,
+        image: image || images.featured || images.icon,
         id: id,
         description: description,
         finalPrice: finalPrice
@@ -54,7 +52,7 @@ export function Card(props) {
             <div className='relative bg-zinc-200 dark:bg-zinc-800 rounded-lg shadow-lg shadow-zinc-400/50 dark:shadow-zinc-900/50 w-max h-max hover:shadow-none hover:scale-95 transition-all duration-150 ease-in'>
                 <div className='overflow-hidden rounded-t-md rounded-b bg-zinc-200 dark:bg-zinc-800 aspect-none transition-all duration-150 ease-in'>
                     <img
-                        src={image}
+                        src={image || images.featured || images.icon}
                         alt={name}
                         className='object-cover object-center w-72'
                     />
@@ -141,17 +139,11 @@ export function CardSlider(props) {
                         items.map(item => (
                             <SwiperSlide key={item.id}>
                                 <div className='overflow-hidden rounded-t-md rounded-b bg-zinc-200 dark:bg-zinc-800 aspect-none transition-all duration-150 ease-in'>
-                                    {
-                                        item.images?.featured ? <img
-                                            src={item.images.featured}
-                                            alt={item.name}
-                                            className='object-cover object-center w-72 p-3'
-                                        /> : <img
-                                            src={item.images.icon}
-                                            alt={item.name}
-                                            className='object-cover object-center w-72 p-3'
-                                        />
-                                    }
+                                    <img
+                                        src={item.images.featured || item.images.icon}
+                                        alt={item.name}
+                                        className='object-cover object-center w-72 p-3'
+                                    />
                                 </div>
                                 <div className='flex flex-col p-3'>
                                         <h3 className='text-sm text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>

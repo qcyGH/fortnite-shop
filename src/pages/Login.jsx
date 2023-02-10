@@ -36,7 +36,7 @@ export function LoginPage() {
             </h1>
 
             <form onSubmit={handleSubmit} className='flex flex-col items-center mt-8'>
-                <label className='text-zinc-50 dark:text-zinc-800 bg-zinc-800 dark:bg-zinc-50 rounded-lg px-3 hover:scale-95 active:scale-90 transition-all duration-150 ease-in'>
+                <label className='text-zinc-50 dark:text-zinc-800 bg-zinc-800 dark:bg-zinc-50 rounded-lg px-3 transition-all duration-150 ease-in'>
                     Name: <input name='username'
                                 className='text-zinc-50 dark:text-zinc-800 bg-transparent rounded-lg border-none outline-none py-1 px-2 focus:border-none focus:shadow-none focus:ring-0 focus-visible:outline-none transition-color duration-150 ease-in'
                             />

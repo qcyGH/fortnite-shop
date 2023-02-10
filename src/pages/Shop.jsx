@@ -16,7 +16,6 @@ export function Shop() {
 
     useEffect(() => {
         if (isSuccess) {
-            console.log(data)
             dispatch(fetchItems({data}))
         }
     }, [isSuccess])

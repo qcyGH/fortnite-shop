@@ -8,6 +8,9 @@ import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper'
 import { removeItem, changeQuantity } from '../store/shopSlice'
 import { useDispatch } from 'react-redux'
 
+import useSound from 'use-sound'
+import clickSfx from '.././sounds/sine-click.mp3'
+
 export function CartItem(props) {
     const { item } = props
     const {
@@ -31,6 +34,11 @@ export function CartItem(props) {
     }, [count])
 
     const dispatch = useDispatch()
+
+    const [playSound] = useSound(
+        clickSfx,
+        { volume: 0.5 }
+    )
 
     return (
         <div className='relative flex flex-col md:flex-row justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
@@ -68,7 +76,10 @@ export function CartItem(props) {
                             _hover={{ bg: 'transparent' }}
                             minW={0} w={5} h={5}
                             icon={<MinusIcon boxSize={3} />}
-                            onClick={() => setCount((prevCount) => prevCount-1)}
+                            onClick={() => {
+                                playSound()
+                                setCount((prevCount) => prevCount-1)
+                            }}
                         >
                         </IconButton>
                         <IconButton
@@ -79,7 +90,10 @@ export function CartItem(props) {
                             minW={0} w={5} h={5}
                             className='ml-1'
                             icon={<AddIcon boxSize={3} />}
-                            onClick={() => setCount((prevCount) => prevCount+1)}
+                            onClick={() => {
+                                playSound()
+                                setCount((prevCount) => prevCount+1)
+                            }}
                         >
                         </IconButton>
                     </div>
@@ -113,6 +127,11 @@ export function CartItemSlider(props) {
         }
 
     }, [count])
+
+    const [playSound] = useSound(
+        clickSfx,
+        { volume: 0.5 }
+    )
 
     const dispatch = useDispatch()
 
@@ -179,7 +198,10 @@ export function CartItemSlider(props) {
                             _hover={{ bg: 'transparent' }}
                             minW={0} w={5} h={5}
                             icon={<MinusIcon boxSize={3} />}
-                            onClick={() => setCount((prevCount) => prevCount-1)}
+                            onClick={() => {
+                                playSound()
+                                setCount((prevCount) => prevCount-1)
+                            }}
                         >
                         </IconButton>
                         <IconButton
@@ -190,13 +212,19 @@ export function CartItemSlider(props) {
                             minW={0} w={5} h={5}
                             className='ml-1'
                             icon={<AddIcon boxSize={3} />}
-                            onClick={() => setCount((prevCount) => prevCount+1)}
+                            onClick={() => {
+                                playSound()
+                                setCount((prevCount) => prevCount+1)
+                            }}
                         >
                         </IconButton>
                     </div>
                 </div>
             </div>
-            <button onClick={() => dispatch(removeItem(id))}
+            <button onClick={() => {
+                playSound()
+                dispatch(removeItem(id))
+            }}
                     className='absolute bottom-6 right-3 h-9 px-4 py-1 text-zinc-200 bg-rose-800 hover:bg-rose-900 rounded-md'
             >
                 Delete
