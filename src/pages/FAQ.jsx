@@ -26,7 +26,7 @@ export function FAQPage() {
                         </AccordionButton>
                     </h2>
                     <AccordionPanel className='text-base text-gray-600 dark:text-gray-300 mt-2 transition-color duration-150 ease-in' pb={4}>
-                        No, It`s just a my own project to learn React, API and SPA. Enjoy that ^_~
+                        No, It`s just a my own project to practice React, Redux Toolkit, API and SPA. Enjoy that ^_~
                     </AccordionPanel>
                 </AccordionItem>
 
