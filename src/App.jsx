@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { ChakraProvider } from '@chakra-ui/react'
 
 import { Shop } from './pages/Shop'
 import { NewsPage } from './pages/News'
@@ -18,26 +19,28 @@ import { NewsContext } from './hoc/NewsProvider'
 export function App() {
 
     return (
-        <AuthProvider>
-            <StoreContext>
-                <NewsContext>
-                    <Routes>
-                        <Route path='/' element={<Layout />}>
-                            <Route index element={<Shop />} />
-                            <Route path='shop' element={<Navigate to='/' replace />} />
-                            <Route path='news' element={<NewsPage />} />
-                            <Route path='cart' element={
-                                <RequireAuth>
-                                    <CartPage />
-                                </RequireAuth>
-                            } />
-                            <Route path='faq' element={<FAQPage />} />
-                            <Route path='login' element={<LoginPage />}/>
-                            <Route path='*' element={<NotFound />} />
-                        </Route>
-                    </Routes>
-                </NewsContext>
-            </StoreContext>
-        </AuthProvider>
+        <ChakraProvider>
+            <AuthProvider>
+                <StoreContext>
+                    <NewsContext>
+                        <Routes>
+                            <Route path='/' element={<Layout />}>
+                                <Route index element={<Shop />} />
+                                <Route path='shop' element={<Navigate to='/' replace />} />
+                                <Route path='news' element={<NewsPage />} />
+                                <Route path='cart' element={
+                                    <RequireAuth>
+                                        <CartPage />
+                                    </RequireAuth>
+                                } />
+                                <Route path='faq' element={<FAQPage />} />
+                                <Route path='login' element={<LoginPage />}/>
+                                <Route path='*' element={<NotFound />} />
+                            </Route>
+                        </Routes>
+                    </NewsContext>
+                </StoreContext>
+            </AuthProvider>
+        </ChakraProvider>
     )
 }

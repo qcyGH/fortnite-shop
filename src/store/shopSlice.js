@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { useToast } from '@chakra-ui/react'
 import { useAuth } from '../hooks/useAuth'
 import useSound from 'use-sound'
 import clickSfx from '.././sounds/sine-click.mp3'
@@ -23,12 +22,6 @@ const shopSlice = createSlice({
     reducers: {
         addItem(state, action) {
 
-            // const [playSound] = useSound(
-            //     clickSfx,
-            //     { volume: 0.5 }
-            // )
-
-            // playSound()
 
             const item = action.payload.item
 
