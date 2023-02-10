@@ -8,6 +8,7 @@ export function NewsList(props) {
             {
                 items.map(item => (
                     item && <NewsItem
+                        key={item.title}
                         title={item.title}
                         body={item.body}
                         image={item.image}

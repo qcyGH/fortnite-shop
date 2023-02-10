@@ -21,7 +21,7 @@ export const fortniteApi = createApi({
         }),
         getNews: build.query({
             query: () => 'news',
-        })
+        }),
     }),
 })
 
