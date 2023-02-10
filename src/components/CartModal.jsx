@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { IconButton } from '@chakra-ui/react'
+import { IconButton, CloseButton } from '@chakra-ui/react'
 import { CloseIcon } from '@chakra-ui/icons'
 import { StoreProvider } from '../hoc/StoreProvider'
 
@@ -87,13 +87,17 @@ export function CartModal(props) {
                 : <span className='pr-6'>Cart is empty</span>
             }
             <span className='absolute top-1 right-1 flex'>
-                <IconButton
+                <CloseButton
+                    size='sm'
+                    bg='transparent'
+                    _active={{ bg: 'transparent' }}
+                    _hover={{ bg: 'transparent' }}
+                    w={10} h={10}
                     aria-label='close modal'
-                    style={{padding: 11}}
+                    style={{padding: 11, width: 10, height: 10}}
                     onClick={(e) => closeModal(e)}
-                    icon={<CloseIcon w={10} h={10}/>}
                 >
-                </IconButton>
+                </CloseButton>
             </span>
         </div>
     )

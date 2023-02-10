@@ -8,10 +8,8 @@ import {
     DrawerContent,
     DrawerCloseButton,
     useDisclosure,
-    Button,
     Icon,
     IconButton,
-    ChakraProvider,
   } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 
@@ -34,7 +32,7 @@ export function MobileMenu() {
     )
 
     return (
-        <ChakraProvider>
+        <>
             <IconButton
                 position='absolute'
                 bg='transparent'
@@ -99,7 +97,7 @@ export function MobileMenu() {
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>
-        </ChakraProvider>
+        </>
     )
 
 }

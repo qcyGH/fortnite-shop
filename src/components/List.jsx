@@ -1,4 +1,3 @@
-import { ChakraProvider } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 
 import { Card, CardSlider } from './Card'
@@ -18,7 +17,7 @@ export function List() {
     }
 
     return (
-        <ChakraProvider>
+        <>
             <h2 className='text-2xl font-semibold text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                 Daily
             </h2>
@@ -123,6 +122,6 @@ export function List() {
                     ))
                 }
             </div>
-        </ChakraProvider>
+        </>
     )
 }
