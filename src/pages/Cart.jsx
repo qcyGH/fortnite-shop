@@ -1,16 +1,22 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import { StoreProvider } from '../hoc/StoreProvider'
 import { CartItem, CartItemSlider } from '../components/CartItem'
 import { useToast } from '@chakra-ui/react'
 
 import useSound from 'use-sound'
 import clickSfx from '.././sounds/sine-click.mp3'
 
-export function CartPage() {
+import { useSelector, useDispatch } from 'react-redux'
+import { makePurchase } from '../store/shopSlice'
 
-    const { orderList, makePurchase } = useContext(StoreProvider)
+import { useAuth } from '../hooks/useAuth'
+
+export function CartPage() {
+    const orderList = useSelector(state => state.shop.orderList)
+    const { user } = useAuth()
+    const notification = useToast()
+    const dispatch = useDispatch()
 
     const [totalPrice, setTotalPrice] = useState(0)
 
@@ -32,7 +38,6 @@ export function CartPage() {
         clickSfx,
         { volume: 0.5 }
     )
-    const notification = useToast()
 
     return (
         <>
@@ -88,7 +93,7 @@ export function CartPage() {
                                                         isClosable: true,
                                                     })
 
-                                                    makePurchase()
+                                                    dispatch(makePurchase())
                                                 }}
                                                 className='text-lg text-slate-100 bg-purple-600 width-max px-6 py-2 my-2 rounded-md hover:scale-95 active:scale-90 transition-all ease duration-200'
                                             >

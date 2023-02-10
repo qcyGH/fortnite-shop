@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { IconButton } from '@chakra-ui/react'
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
-
-import { StoreProvider } from '../hoc/StoreProvider'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper'
 
+import { removeItem, changeQuantity } from '../store/shopSlice'
+import { useDispatch } from 'react-redux'
+
 export function CartItem(props) {
-    const { removeItem, changeQuantity } = useContext(StoreProvider)
     const { item } = props
     const {
         name,
@@ -23,12 +23,14 @@ export function CartItem(props) {
 
     useEffect(() => {
         if (count > 0) {
-            changeQuantity(item, count)
+            dispatch(changeQuantity({item, count}))
         } else {
             setCount(1)
         }
 
     }, [count])
+
+    const dispatch = useDispatch()
 
     return (
         <div className='relative flex flex-col md:flex-row justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
@@ -61,21 +63,29 @@ export function CartItem(props) {
                     <div className='flex absolute top-[50%] translate-y-[-50%] right-4'>
                         <IconButton
                             aria-label='Decrement count'
-                            icon={<MinusIcon boxSize={12}/>}
+                            bg='transparent'
+                            _active={{ bg: 'transparent' }}
+                            _hover={{ bg: 'transparent' }}
+                            minW={0} w={5} h={5}
+                            icon={<MinusIcon boxSize={3} />}
                             onClick={() => setCount((prevCount) => prevCount-1)}
                         >
                         </IconButton>
                         <IconButton
                             aria-label='Increment count'
-                            className='ml-4'
-                            icon={<AddIcon boxSize={12}/>}
+                            bg='transparent'
+                            _active={{ bg: 'transparent' }}
+                            _hover={{ bg: 'transparent' }}
+                            minW={0} w={5} h={5}
+                            className='ml-1'
+                            icon={<AddIcon boxSize={3} />}
                             onClick={() => setCount((prevCount) => prevCount+1)}
                         >
                         </IconButton>
                     </div>
                 </div>
             </div>
-            <button onClick={() => removeItem(id)}
+            <button onClick={() => dispatch(removeItem(id))}
                     className='absolute bottom-6 right-3 h-9 px-4 py-1 text-zinc-200 bg-rose-800 hover:bg-rose-900 rounded-md'
             >
                 Delete
@@ -85,7 +95,6 @@ export function CartItem(props) {
 }
 
 export function CartItemSlider(props) {
-    const { removeItem, changeQuantity } = useContext(StoreProvider)
     const { item } = props
     const {
         items,
@@ -98,12 +107,14 @@ export function CartItemSlider(props) {
 
     useEffect(() => {
         if (count > 0) {
-            changeQuantity(item, count)
+            dispatch(changeQuantity({item, count}))
         } else {
             setCount(1)
         }
 
     }, [count])
+
+    const dispatch = useDispatch()
 
     return (
         <div className='cart__item relative flex flex-col md:flex-row justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
@@ -177,7 +188,7 @@ export function CartItemSlider(props) {
                     </div>
                 </div>
             </div>
-            <button onClick={() => removeItem(id)}
+            <button onClick={() => dispatch(removeItem(id))}
                     className='absolute bottom-6 right-3 h-9 px-4 py-1 text-zinc-200 bg-rose-800 hover:bg-rose-900 rounded-md'
             >
                 Delete

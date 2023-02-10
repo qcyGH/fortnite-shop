@@ -54,9 +54,8 @@ export function UserModal(props) {
                         bg='transparent'
                         _active={{ bg: 'transparent' }}
                         _hover={{ bg: 'transparent' }}
-                        w={10} h={10}
+                        w='10px' h='10px' p='11px'
                         aria-label='close modal'
-                        style={{padding: 11, width: 10, height: 10}}
                         onClick={(e) => closeModal(e)}
                     >
                     </CloseButton>

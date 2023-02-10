@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { IconButton, CloseButton } from '@chakra-ui/react'
 import { CloseIcon } from '@chakra-ui/icons'
-import { StoreProvider } from '../hoc/StoreProvider'
+import { useDispatch } from 'react-redux'
+import { removeItem } from '../store/shopSlice'
 
 export function CartModal(props) {
-    const { removeItem } = useContext(StoreProvider)
     const { items = [], show, closeModalOutside, closeModal } = props
     const [totalPrice, setTotalPrice] = useState(0)
     const rootCartModal = useRef(null)
@@ -39,6 +39,8 @@ export function CartModal(props) {
         return () => document.removeEventListener('click', handleClick)
     }, [rootCartModal, show, closeModal])
 
+    const dispatch = useDispatch()
+
     if (!show) return null
 
     return (
@@ -51,31 +53,32 @@ export function CartModal(props) {
             '>
             {
                 items.length > 0
-                ? <div className='flex flex-col items-end pb-2'>
-                    <div className='grid auto-rows-max grid-cols-8 gap-x-4 gap-y-2.5 py-4 px-4'>
-                        <div className='pl-1 col-span-5'>Name</div>
-                        <div className='pl-1 col-span-2'>Price</div>
-                        <div></div>
+                ? <div className='flex flex-col items-end pt-4 pb-2'>
                         {
                             items.map(item => (
-                                <>
-                                    <div className='col-span-5 pl-2 pr-4 py-1 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
+                                <div key={item.id} className='grid auto-rows-max grid-cols-8 gap-x-4 gap-y-2.5 py-4 px-4'>
+                                    <div className='col-span-5 pl-2 pr-4 py-2 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
                                         {item.name}
                                     </div>
-                                    <div className='col-span-2 pl-2 pr-4 py-1 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
-                                        {item.finalPrice}
+                                    <div className='col-span-2 pl-2 pr-4 py-2 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
+                                        {item.finalPrice} V-Bucks
                                     </div>
                                     <IconButton
                                         aria-label='Remove item'
-                                        icon={<CloseIcon w={12} h={12}/>}
-                                        className='w-8 h-8 text-zinc-200 bg-rose-800 hover:bg-rose-900 rounded-md'
-                                        onClick={() => removeItem(item.id)}
+                                        bg='rgb(159, 18, 57)'
+                                        _active={{ bg: 'rgb(136, 19, 55)' }}
+                                        _hover={{ bg: 'rgb(136, 19, 55)' }}
+                                        minW={0}
+                                        w={10}
+                                        h={10}
+                                        icon={<CloseIcon w={3} h={3}/>}
+                                        className='text-zinc-200 rounded-md'
+                                        onClick={() => dispatch(removeItem(item.id))}
                                     >
                                     </IconButton>
-                                </>
+                                </div>
                             ))
                         }
-                    </div>
                     <span className='opacity-75 block text-right pr-2'>Total price: {totalPrice}</span>
                     <Link
                         to='/cart'
@@ -84,17 +87,17 @@ export function CartModal(props) {
                         Open Cart
                     </Link>
                 </div>
-                : <span className='pr-6'>Cart is empty</span>
+                : <span className='pr-8'>Cart is empty</span>
             }
-            <span className='absolute top-1 right-1 flex'>
+            <span className='absolute top-2 right-3 flex'>
                 <CloseButton
                     size='sm'
                     bg='transparent'
                     _active={{ bg: 'transparent' }}
                     _hover={{ bg: 'transparent' }}
-                    w={10} h={10}
+                    w='10px' h='10px'
+                    p='13px'
                     aria-label='close modal'
-                    style={{padding: 11, width: 10, height: 10}}
                     onClick={(e) => closeModal(e)}
                 >
                 </CloseButton>

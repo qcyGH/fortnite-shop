@@ -1,13 +1,13 @@
 import React, { useState, useRef, useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { Icon, IconButton } from '@chakra-ui/react'
-import { StoreProvider } from '../hoc/StoreProvider'
 import { CartModal } from './CartModal'
 
 import useSound from 'use-sound'
 import clickSfx from '.././sounds/sine-click.mp3'
 
 export function Cart(props) {
-    const { orderList } = useContext(StoreProvider)
+    const orderList = useSelector(state => state.shop.orderList)
     const [showModal, setShowModal] = useState(false)
     const cartRef = useRef(null)
 
@@ -43,6 +43,9 @@ export function Cart(props) {
                     bg='transparent'
                     _active={{ bg: 'transparent' }}
                     _hover={{ bg: 'transparent' }}
+                    minW={4}
+                    w='18px'
+                    h='18px'
                     aria-label='cart'
                     onClick={() => {
                         playSound()

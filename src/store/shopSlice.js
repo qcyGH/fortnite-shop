@@ -53,28 +53,15 @@ const shopSlice = createSlice({
 
         },
         removeItem(state, action) {
-
-            const [playSound] = useSound(
-                clickSfx,
-                { volume: 0.5 }
-            )
-
-            playSound()
-
-            state.orderList.filter((item) => item.id !== action.payload.id)
+            console.log(action.payload)
+            const newOrder = state.orderList.filter((item) => item.id !== action.payload)
+            state.orderList = newOrder
         },
         changeQuantity(state, action) {
 
-            const [playSound] = useSound(
-                clickSfx,
-                { volume: 0.5 }
-            )
-
-            playSound()
-
             const itemIndex = state.orderList.findIndex(orderItem => orderItem.id === action.payload.item.id)
 
-            state.orderList.map((orderItem, index) => {
+            const newOrder = state.orderList.map((orderItem, index) => {
                 if (index === itemIndex) {
                     return {
                         ...orderItem,
@@ -85,24 +72,9 @@ const shopSlice = createSlice({
                 }
             })
 
+            state.orderList = newOrder
         },
         makePurchase(state, action) {
-
-            const [playSound] = useSound(
-                clickSfx,
-                { volume: 0.5 }
-            )
-
-            playSound()
-
-            const { user } = useAuth()
-
-            useToast({
-                title: `Congratulations, ${user} All items was added to your Fortnite account`,
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-            })
 
             state.orderList = []
         },

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react'
-import { StoreProvider } from '../hoc/StoreProvider'
+import React, { useEffect } from 'react'
 
 import {Preloader} from '../components/Preloader'
 import {List} from '../components/List'
