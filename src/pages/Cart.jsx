@@ -10,11 +10,9 @@ import clickSfx from '.././sounds/sine-click.mp3'
 import { useSelector, useDispatch } from 'react-redux'
 import { makePurchase } from '../store/shopSlice'
 
-import { useAuth } from '../hooks/useAuth'
-
 export function CartPage() {
     const orderList = useSelector(state => state.shop.orderList)
-    const { user } = useAuth()
+    const user = useSelector(state => state.user.user)
     const notification = useToast()
     const dispatch = useDispatch()
 

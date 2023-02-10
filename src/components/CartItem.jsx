@@ -173,15 +173,23 @@ export function CartItemSlider(props) {
                     />
                     <div className='flex absolute top-[50%] translate-y-[-50%] right-4'>
                         <IconButton
-                            aria-label='Increment count'
-                            icon={<MinusIcon w={12} h={12}/>}
+                            aria-label='Decrement count'
+                            bg='transparent'
+                            _active={{ bg: 'transparent' }}
+                            _hover={{ bg: 'transparent' }}
+                            minW={0} w={5} h={5}
+                            icon={<MinusIcon boxSize={3} />}
                             onClick={() => setCount((prevCount) => prevCount-1)}
                         >
                         </IconButton>
                         <IconButton
                             aria-label='Increment count'
-                            className='ml-4'
-                            icon={<AddIcon w={12} h={12}/>}
+                            bg='transparent'
+                            _active={{ bg: 'transparent' }}
+                            _hover={{ bg: 'transparent' }}
+                            minW={0} w={5} h={5}
+                            className='ml-1'
+                            icon={<AddIcon boxSize={3} />}
                             onClick={() => setCount((prevCount) => prevCount+1)}
                         >
                         </IconButton>

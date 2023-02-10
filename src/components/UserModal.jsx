@@ -2,13 +2,16 @@ import React, { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { CloseButton } from '@chakra-ui/react'
 
-import { useAuth } from '../hooks/useAuth'
+import { useSelector, useDispatch } from 'react-redux'
+import { signout } from '../store/userSlice'
 
 export function UserModal(props) {
     const location = useLocation()
-    const { user, signout } = useAuth()
+    const user = useSelector(state => state.user.user)
     const { show, closeModalOutside, closeModal } = props
     const rootUserModal = useRef(null)
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (!show) return
@@ -41,7 +44,7 @@ export function UserModal(props) {
                                 <span className='text-zinc-700 leading-none hover:text-zinc-800 dark:text-zinc-300 dark:hover:text-zinc-200 ease-in duration-150'>
                                     {user}
                                 </span>
-                                <button onClick={() => signout()} className='mt-4 text-zinc-700 leading-none hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <button onClick={() => dispatch(signout())} className='mt-4 text-zinc-700 leading-none hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     Sign out
                                 </button>
                             </div> : <Link className='opacity-100 pr-6 text-zinc-700 leading-none hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150' to='/login' state={{from: location}}>

@@ -1,5 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../hooks/useAuth'
+
+import { useDispatch } from 'react-redux'
+import { signin } from '../store/userSlice'
 
 import useSound from 'use-sound'
 import clickSfx from '.././sounds/sine-click.mp3'
@@ -8,7 +10,7 @@ export function LoginPage() {
 
     const navigate = useNavigate()
     const location = useLocation()
-    const { signin } = useAuth()
+    const dispatch = useDispatch()
 
     const fromPage = location.state?.from?.pathname || '/'
 
@@ -17,7 +19,8 @@ export function LoginPage() {
         const form = event.target
         const user = form.username.value
 
-        signin(user, () => navigate(fromPage, { replace: true }))
+        dispatch(signin({user}))
+        navigate(fromPage, { replace: true })
     }
 
     const [playSound] = useSound(

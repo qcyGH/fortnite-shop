@@ -1,18 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { useAuth } from '../hooks/useAuth'
-import useSound from 'use-sound'
-import clickSfx from '.././sounds/sine-click.mp3'
-
-const showNotification = (name) => {
-    useToast({
-        title: `Successful added ${name} to cart`,
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-    })
-}
-
 const shopSlice = createSlice({
     name: 'shop',
     initialState: {
