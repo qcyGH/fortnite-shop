@@ -16,7 +16,7 @@ export function FAQPage() {
             </h1>
 
             <Accordion className='mt-10 shadow-lg shadow-zinc-400/50 dark:shadow-zinc-900/50 rounded-lg overflow-hidden' defaultIndex={[0]} allowMultiple>
-                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 px-5 py-1 transition-all duration-150 ease-in'>
+                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 border-none px-5 py-1 transition-all duration-150 ease-in'>
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
@@ -30,7 +30,7 @@ export function FAQPage() {
                     </AccordionPanel>
                 </AccordionItem>
 
-                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 px-5 py-1 transition-all duration-150 ease-in'>
+                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 border-none px-5 py-1 transition-all duration-150 ease-in'>
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
@@ -46,7 +46,7 @@ export function FAQPage() {
                     </AccordionPanel>
                 </AccordionItem>
 
-                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 px-5 py-1 transition-all duration-150 ease-in'>
+                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 border-none px-5 py-1 transition-all duration-150 ease-in'>
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
@@ -62,7 +62,7 @@ export function FAQPage() {
                     </AccordionPanel>
                 </AccordionItem>
 
-                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 px-5 py-1 transition-all duration-150 ease-in'>
+                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 border-none px-5 py-1 transition-all duration-150 ease-in'>
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
@@ -76,7 +76,7 @@ export function FAQPage() {
                     </AccordionPanel>
                 </AccordionItem>
 
-                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 px-5 py-1 transition-all duration-150 ease-in'>
+                <AccordionItem className='bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 hover:dark:bg-zinc-700 border-none px-5 py-1 transition-all duration-150 ease-in'>
                     <h2>
                         <AccordionButton className='text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in'>
                             <Box className='text-lg text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in' as="span" flex='1' textAlign='left'>
