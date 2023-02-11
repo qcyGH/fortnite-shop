@@ -46,3 +46,5 @@ Also this project uploaded to Vercel [^_~](https://fortnite-shop-qcy.vercel.app/
 - Now you can go to the terminal. Write two commands `npm install` (it will install all the dependencies) and `npm run dev` (it will start your local Vite server)
 - Open the link Vite gave for you
 - Done!
+
+P.s. Thank you for viewing my work (ಥ _ ಥ)
