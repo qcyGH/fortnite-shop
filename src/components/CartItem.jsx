@@ -43,7 +43,7 @@ export function CartItem(props) {
     return (
         <div className='relative flex flex-col md:flex-row justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
             <div className='flex flex-col md:flex-row'>
-                <div className='overflow-hidden bg-transparent aspect-none'>
+                <div className='overflow-hidden bg-transparent rounded-md aspect-none'>
                     <img
                         src={image}
                         alt={name}
@@ -154,18 +154,12 @@ export function CartItemSlider(props) {
                 items.map(item => (
                     <SwiperSlide key={item.id}>
                         <div className='flex flex-col md:flex-row'>
-                            <div className='overflow-hidden bg-transparent aspect-none'>
-                                {
-                                    item.images?.featured ? <img
-                                        src={item.images.featured}
-                                        alt={item.name}
-                                        className='object-cover object-center w-64 p-3'
-                                    /> : <img
-                                        src={item.images.icon}
-                                        alt={item.name}
-                                        className='object-cover object-center w-64 p-3'
-                                    />
-                                }
+                            <div className='overflow-hidden bg-transparent rounded-md aspect-none'>
+                                <img
+                                    src={item.images.featured || item.images.icon}
+                                    alt={item.name}
+                                    className='object-cover object-center w-64 p-3'
+                                />
                             </div>
                             <div className='mt-4'>
                                 <h3 className='pl-2 pr-4 py-1 transition-color duration-100'>
