@@ -23,7 +23,7 @@ export function ThemeSwitcher() {
             newTheme = 'light'
         }
         // змінюємо тему
-        htmlBlock.classList.remove(currentTheme)
+        htmlBlock.classList.remove('dark', 'light')
         htmlBlock.classList.add(newTheme)
 
         // зберігаємо в localStorage
