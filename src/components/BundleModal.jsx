@@ -45,7 +45,7 @@ export function BundleModal(props) {
                 { title }
             </button>
 
-            <AnimatePresence exitBeforeEnter initial={ false }>
+            <AnimatePresence mode='wait' initial={ false }>
                 <motion.div
                     style={{ display: 'inline-block', position: 'absolute', top: 0, left: 0, zIndex: 10}}
                     key={showModal}

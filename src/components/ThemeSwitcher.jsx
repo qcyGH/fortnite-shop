@@ -71,7 +71,7 @@ export function ThemeSwitcher() {
 
     return (
         <span className='flex items-center justify-center w-[18px] h-[18px]'>
-            <AnimatePresence exitBeforeEnter initial={ false }>
+            <AnimatePresence mode='wait' initial={ false }>
                 <motion.div
                     className='flex items-center justify-center w-[18px] h-[18px]'
                     key={darkTheme}
