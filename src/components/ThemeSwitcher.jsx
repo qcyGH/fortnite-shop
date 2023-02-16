@@ -1,68 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { IconButton } from '@chakra-ui/react'
+import { IconButton, useColorMode } from '@chakra-ui/react'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
+
 import useSound from 'use-sound'
 import clickSfx from '.././sounds/sine-click.mp3'
 
 export function ThemeSwitcher() {
-    const [htmlBlock, setHtmlBlock] = useState(document.documentElement)
-    const [savedUserTheme] = useState(localStorage.getItem('user-theme'))
-    const [darkTheme, setDarkTheme] = useState(() => htmlBlock.classList.contains('light') ? false : true)
-
-    const changeTheme = () => {
-        // play sound click
-        playSound()
-
-        // отримуємо поточну тему
-        let currentTheme = htmlBlock.classList.contains('light') ? 'light' : 'dark'
-        let newTheme
-        if (currentTheme === 'light') {
-            newTheme = 'dark'
-        } else if (currentTheme === 'dark') {
-            newTheme = 'light'
-        }
-        // змінюємо тему
-        htmlBlock.classList.remove('dark', 'light')
-        htmlBlock.classList.add(newTheme)
-
-        // зберігаємо в localStorage
-        localStorage.setItem('user-theme', newTheme)
-    }
-
-    // встановлюємо тему:
-    // 1 випадок: якщо користувач вручну вже обирав тему
-    // 2 випадок: якщо користувач нічого вручну не змінював, то буде використана тема його пристрою
-    const setThemeClass = () => {
-        let userTheme
-        if (window.matchMedia) {
-            userTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-        }
-
-        // якщо користувач під час перебування на сайті змінить тему пристрою, то сайт автоматично перейде
-        // на таку ж тему, що і на пристрої
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (!savedUserTheme) {
-                changeTheme()
-            }
-        })
-
-        if (savedUserTheme) {
-            htmlBlock.classList.add(savedUserTheme)
-        } else {
-            htmlBlock.classList.add(userTheme)
-        }
-    }
-
-    // коли сторінка завантажиться, викликаємо функцію setThemeClass()
-    useEffect(() => {
-        setThemeClass()
-    })
-
-    useEffect(() => {
-        changeTheme()
-
-    }, [darkTheme])
+    const { colorMode, toggleColorMode } = useColorMode()
 
     const [playSound] = useSound(
         clickSfx,
@@ -74,7 +19,7 @@ export function ThemeSwitcher() {
             <AnimatePresence mode='wait' initial={ false }>
                 <motion.div
                     className='flex items-center justify-center w-[18px] h-[18px]'
-                    key={darkTheme}
+                    key={colorMode}
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 20, opacity: 0 }}
@@ -85,9 +30,12 @@ export function ThemeSwitcher() {
                         _active={{ bg: 'transparent' }}
                         _hover={{ bg: 'transparent' }}
                         aria-label="Change theme"
-                        onClick={() => setDarkTheme(!darkTheme)}
+                        onClick={() =>{
+                            playSound()
+                            toggleColorMode()
+                        }}
                         icon={
-                        darkTheme === false
+                        colorMode === 'light'
                             ? <SunIcon w={18} h={18}/>
                             : <MoonIcon w={18} h={18}/>
                         }
