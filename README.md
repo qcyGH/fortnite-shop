@@ -48,20 +48,3 @@ Also this project uploaded to Vercel [^_~](https://fortnite-shop-qcy.vercel.app/
 - Done!
 
 P.s. Thank you for viewing my work (ಥ _ ಥ)
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-
-fortnite-shop/README.md at master · qcyGH/fortnite-shop
