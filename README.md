@@ -67,14 +67,14 @@ History
 
 ### Description
 
-Project made with React, Redux (Redux Toolkit & RTK Query), Vite, SPA, Fortnite API v2, Tailwind, Framer motion, ChakraUI. Also i used `useSound` hook for playing click sound on click. `Theme changer` for changing theme.    
+Project made with React, Next.js (SSR), Redux (Redux Toolkit & RTK Query), Webpack, Fortnite API v2, Tailwind, Framer motion, ChakraUI. Also i used `useSound` hook for playing click sound on click.
 Also this project uploaded to Vercel [^_~](https://fortnite-shop-qcy.vercel.app/)
 
 ### How to use
 
 - Go to [API page](https://dash.fortnite-api.com/), login via Discord and get our API key
 - Then create `.env.local` in main directory
-- Add this variable with your key `VITE_REACT_APP_API_KEY=your_API_key`
+- Add this variable with your key `API_KEY=your_API_key`
 - Now you can go to the terminal. Write two commands `npm install` (it will install all the dependencies) and `npm run dev` (it will start your local Vite server)
 - Open the link Vite gave for you
 - Done!
