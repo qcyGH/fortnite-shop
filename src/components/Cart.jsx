@@ -1,10 +1,10 @@
-import React, { useState, useRef, useContext } from 'react'
+import React, { useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Icon, IconButton } from '@chakra-ui/react'
 import { CartModal } from './CartModal'
 
 import useSound from 'use-sound'
-import clickSfx from '.././sounds/sine-click.mp3'
+
 
 export function Cart(props) {
     const orderList = useSelector(state => state.shop.orderList)
@@ -12,7 +12,7 @@ export function Cart(props) {
     const cartRef = useRef(null)
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 

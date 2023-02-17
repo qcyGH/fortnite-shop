@@ -5,7 +5,7 @@ export const fortniteApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://fortnite-api.com/v2/',
         prepareHeaders: (headers, { getState }) => {
-            const token = import.meta.env.VITE_REACT_APP_API_KEY
+            const token = process.env.API_KEY
 
             // If we have a token set in state, let's assume that we should be passing it.
             if (token) {

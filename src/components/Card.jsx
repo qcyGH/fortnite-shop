@@ -1,14 +1,19 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addItem } from '../store/shopSlice'
+import { addItem } from '@/store/shopSlice'
 
 import { BundleModal } from './BundleModal'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper'
 
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/autoplay'
+import 'swiper/css/mousewheel'
+
 import useSound from 'use-sound'
-import clickSfx from '.././sounds/sine-click.mp3'
 
 import { useToast } from '@chakra-ui/react'
 
@@ -35,7 +40,7 @@ export function Card(props) {
     const notification = useToast()
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 
@@ -107,7 +112,7 @@ export function CardSlider(props) {
     const notification = useToast()
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 
@@ -125,6 +130,7 @@ export function CardSlider(props) {
                 <Swiper
                     className='max-w-[288px]'
                     modules={[Navigation, Pagination, Autoplay, Mousewheel]}
+                    direction='horizontal'
                     spaceBetween={50}
                     slidesPerView={1}
                     autoplay={{
@@ -138,11 +144,11 @@ export function CardSlider(props) {
                     {
                         items.map(item => (
                             <SwiperSlide key={item.id}>
-                                <div className='overflow-hidden rounded-t-md rounded-b bg-zinc-200 dark:bg-zinc-800 aspect-none transition-all duration-150 ease-in'>
+                                <div className='overflow-hidden rounded-t-md rounded-b p-3 bg-zinc-200 dark:bg-zinc-800 aspect-none transition-all duration-150 ease-in'>
                                     <img
                                         src={item.images.featured || item.images.icon}
                                         alt={item.name}
-                                        className='object-cover object-center w-72 p-3'
+                                        className='object-cover object-center w-72 rounded-md'
                                     />
                                 </div>
                                 <div className='flex flex-col p-3'>

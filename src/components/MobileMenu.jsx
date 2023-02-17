@@ -13,12 +13,11 @@ import {
   } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 
-import { Link, NavLink } from 'react-router-dom'
-import { ThemeSwitcher } from './ThemeSwitcher'
+import Link from 'next/link'
+import { ThemeSwitcher } from './ThemeSwitcher_old'
 import { User } from './User'
 
 import useSound from 'use-sound'
-import clickSfx from '.././sounds/sine-click.mp3'
 
 export function MobileMenu() {
 
@@ -34,7 +33,7 @@ export function MobileMenu() {
     )
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 
@@ -48,7 +47,10 @@ export function MobileMenu() {
                 display={{ sm: 'inline-block', md: 'none'}}
                 className='absolute top-[50%] right-5 translate-y-[-50%] text-zinc-100 dark:text-zinc-900'
                 ref={btnRef}
-                onClick={onOpen}
+                onClick={() => {
+                    playSound()
+                    onOpen()
+                }}
                 icon={<HamburgerIcon className='bg-purple-700 p-[10px] rounded-md' boxSize='40px'/>}
             />
             <Drawer
@@ -65,24 +67,24 @@ export function MobileMenu() {
                     <DrawerBody>
                         <ul className='flex flex-col text-lg'>
                             <li className='mb-4'>
-                                <NavLink onClick={() => playSound()} to='/' end className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <Link onClick={() => playSound()} href='/' end className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     Home
-                                </NavLink>
+                                </Link>
                             </li>
                             <li className='mb-4'>
-                                <NavLink onClick={() => playSound()} to='/news' end className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <Link onClick={() => playSound()} href='/news' end className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     News
-                                </NavLink>
+                                </Link>
                             </li>
                             <li className='mb-4'>
-                                <NavLink onClick={() => playSound()} to='/cart' className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <Link onClick={() => playSound()} href='/cart' className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     Cart
-                                </NavLink>
+                                </Link>
                             </li>
                             <li className='mb-4'>
-                                <NavLink onClick={() => playSound()} to='/faq' className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                                <Link onClick={() => playSound()} href='/faq' className='block text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     FAQ
-                                </NavLink>
+                                </Link>
                             </li>
                         </ul>
                     </DrawerBody>
@@ -93,7 +95,7 @@ export function MobileMenu() {
                                 <User />
                             </li>
                             <li className='flex items-center justify-center w-10 h-10 mr-2'>
-                                <Link className='opacity-100' onClick={() => playSound()} to='/cart'>
+                                <Link onClick={() => playSound()} className='opacity-100' href='/cart'>
                                     <CartIcon className='text-zinc-900 dark:text-zinc-100' w={18} h={17} />
                                 </Link>
                             </li>

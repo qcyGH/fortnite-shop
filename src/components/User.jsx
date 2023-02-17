@@ -3,7 +3,6 @@ import { Icon, IconButton } from '@chakra-ui/react'
 import { UserModal } from './UserModal'
 
 import useSound from 'use-sound'
-import clickSfx from '.././sounds/sine-click.mp3'
 
 export function User(props) {
 
@@ -11,7 +10,7 @@ export function User(props) {
     const userRef = useRef(null)
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 

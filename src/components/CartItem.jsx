@@ -5,11 +5,10 @@ import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper'
 
-import { removeItem, changeQuantity } from '../store/shopSlice'
+import { removeItem, changeQuantity } from '@/store/shopSlice'
 import { useDispatch } from 'react-redux'
 
 import useSound from 'use-sound'
-import clickSfx from '.././sounds/sine-click.mp3'
 
 export function CartItem(props) {
     const { item } = props
@@ -36,7 +35,7 @@ export function CartItem(props) {
     const dispatch = useDispatch()
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 
@@ -99,7 +98,10 @@ export function CartItem(props) {
                     </div>
                 </div>
             </div>
-            <button onClick={() => dispatch(removeItem(id))}
+            <button onClick={() => {
+                playSound()
+                dispatch(removeItem(id))
+            }}
                     className='absolute bottom-6 right-3 h-9 px-4 py-1 text-zinc-200 bg-rose-800 hover:bg-rose-900 rounded-md'
             >
                 Delete
@@ -129,7 +131,7 @@ export function CartItemSlider(props) {
     }, [count])
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 

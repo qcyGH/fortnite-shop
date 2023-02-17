@@ -1,14 +1,15 @@
-import { NavLink, Link } from 'react-router-dom'
-import { ThemeSwitcher } from './ThemeSwitcher'
+"use client"
+
+import Link from 'next/link'
+import ThemeSwitcher from './ThemeSwitcher'
 import { Cart } from './Cart'
 import { User } from './User'
 import { MobileMenu } from './MobileMenu'
 import { Icon } from '@chakra-ui/react'
 
 import useSound from 'use-sound'
-import clickSfx from '.././sounds/sine-click.mp3'
 
-export function Header(props) {
+export default function NavBar(props) {
     const LogoIcon = (props) => (
         <Icon viewBox='0 0 128 128' fill='none' {...props}>
             <rect width="128" height="128" rx="64" fill="#F3AF19"/>
@@ -28,39 +29,39 @@ export function Header(props) {
     )
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 
     return (
-        <header className='sticky h-12 z-10 flex flex-row items-center justify-center bg-zinc-200/90 dark:bg-zinc-900/90 py-3 px-5 lg:px-10 backdrop-blur-xl transition-color duration-300 backdrop-saturate-150'>
-            <Link onClick={() => playSound()} to='/' className='opacity-100 text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150
+        <header className='sticky top-0 h-12 z-10 flex flex-row items-center justify-center bg-zinc-200/90 dark:bg-zinc-900/90 py-3 px-5 lg:px-10 backdrop-blur-xl transition-color duration-300 backdrop-saturate-150'>
+            <Link onClick={() => playSound()} href='/' className='opacity-100 text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150
                             flex items-center absolute top-[50%] left-5 lg:left-10 translate-y-[-50%]'>
                 <LogoIcon w={7} h={7}/>
-                <span className='ml-2'>
+                <span className='ml-2 hover:opacity-70 duration-150 ease'>
                     Fortnite Shop
                 </span>
             </Link>
             <ul className='hidden md:flex flex-row px-6'>
                 <li className='mr-4'>
-                    <NavLink onClick={() => playSound()} to='/' end className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                    <Link onClick={() => playSound()} href='/' className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                         Home
-                    </NavLink>
+                    </Link>
                 </li>
                 <li className='mr-4'>
-                    <NavLink onClick={() => playSound()} to='/news' end className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                    <Link onClick={() => playSound()} href='/news' className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                         News
-                    </NavLink>
+                    </Link>
                 </li>
                 <li className='mr-4'>
-                    <NavLink onClick={() => playSound()} to='/cart' className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                    <Link onClick={() => playSound()} href='/cart' className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                         Cart
-                    </NavLink>
+                    </Link>
                 </li>
                 <li className='mr-4'>
-                    <NavLink onClick={() => playSound()} to='/faq' className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
+                    <Link onClick={() => playSound()} href='/faq' className='text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                         FAQ
-                    </NavLink>
+                    </Link>
                 </li>
             </ul>
             <ul className='hidden md:flex items-center absolute top-[50%] right-5 lg:right-10 translate-y-[-50%]'>

@@ -1,50 +1,38 @@
-# ![Logo](https://raw.githubusercontent.com/qcyGH/fortnite-shop/57464fff4ff7631ee21f4c0f802e6c64fbb61797/src/assets/logo.svg "Fortnite shop") Fortnite shop
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Menu 
+## Getting Started
 
-- [Images](https://github.com/qcyGH/fortnite-shop#Images)
-- [Description](https://github.com/qcyGH/fortnite-shop#Description)
-- [How to use](https://github.com/qcyGH/fortnite-shop#How-to-use)
+First, run the development server:
 
-### Images
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-#### Home page
-![Home page light](https://github.com/qcyGH/fortnite-shop/blob/master/.images/home-light.png?raw=true)
-![Home page dark](https://github.com/qcyGH/fortnite-shop/blob/master/.images/home-dark.png?raw=true)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-#### Cart modal
-![Cart modal](https://github.com/qcyGH/fortnite-shop/blob/master/.images/Cart-modal.png?raw=true)
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-#### News page
-![News page](https://github.com/qcyGH/fortnite-shop/blob/master/.images/News-page.png?raw=true)
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-#### Cart page
-![Cart page](https://github.com/qcyGH/fortnite-shop/blob/master/.images/Cart-page.png?raw=true)
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-#### FAQ page
-![FAQ page](https://github.com/qcyGH/fortnite-shop/blob/master/.images/FAQ-page.png?raw=true)
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-#### Login page
-![Login page](https://github.com/qcyGH/fortnite-shop/blob/master/.images/login-page.png?raw=true)
+## Learn More
 
-#### Mobile
-![Mobile](https://github.com/qcyGH/fortnite-shop/blob/master/.images/mobile.png?raw=true)
+To learn more about Next.js, take a look at the following resources:
 
-#### Mobile menu
-![Mobile menu](https://github.com/qcyGH/fortnite-shop/blob/master/.images/Mobile-menu.png?raw=true)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### Description
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-Project made with React, Redux (Redux Toolkit & RTK Query), Vite, SPA, Fortnite API v2, Tailwind, Framer motion, ChakraUI. Also i used `useSound` hook for playing click sound on click. `Theme changer` for changing theme.    
-Also this project uploaded to Vercel [^_~](https://fortnite-shop-qcy.vercel.app/)
+## Deploy on Vercel
 
-### How to use
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- Go to [API page](https://dash.fortnite-api.com/), login via Discord and get our API key
-- Then create `.env.local` in main directory
-- Add this variable with your key `VITE_REACT_APP_API_KEY=your_API_key`
-- Now you can go to the terminal. Write two commands `npm install` (it will install all the dependencies) and `npm run dev` (it will start your local Vite server)
-- Open the link Vite gave for you
-- Done!
-
-P.s. Thank you for viewing my work (ಥ _ ಥ)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

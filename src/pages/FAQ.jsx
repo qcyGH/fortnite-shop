@@ -7,7 +7,7 @@ import {
     Box
 } from '@chakra-ui/react'
 
-export function FAQPage() {
+export default function FAQ() {
 
     return (
         <>

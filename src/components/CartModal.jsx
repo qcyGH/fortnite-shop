@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { IconButton, CloseButton } from '@chakra-ui/react'
 import { CloseIcon } from '@chakra-ui/icons'
 import { useDispatch } from 'react-redux'
-import { removeItem } from '../store/shopSlice'
+import { removeItem } from '@/store/shopSlice'
 
 import useSound from 'use-sound'
-import clickSfx from '.././sounds/sine-click.mp3'
 
 export function CartModal(props) {
     const { items = [], show, closeModalOutside, closeModal } = props
@@ -45,7 +44,7 @@ export function CartModal(props) {
     const dispatch = useDispatch()
 
     const [playSound] = useSound(
-        clickSfx,
+        '/sounds/sine-click.mp3',
         { volume: 0.5 }
     )
 
@@ -84,7 +83,10 @@ export function CartModal(props) {
                                         position='absolute'
                                         icon={<CloseIcon w={3} h={3}/>}
                                         className='text-zinc-200 rounded-md top-0 right-0 translate-y-[43%]'
-                                        onClick={() => dispatch(removeItem(item.id))}
+                                        onClick={() =>  {
+                                            playSound()
+                                            dispatch(removeItem(item.id))
+                                        }}
                                     >
                                     </IconButton>
                                 </div>
@@ -93,8 +95,7 @@ export function CartModal(props) {
                     </div>
                     <span className='opacity-75 block text-right pr-2'>Total price: {totalPrice}</span>
                     <Link
-                        onClick={() => playSound()}
-                        to='/cart'
+                        href='/cart'
                         className='w-max opacity-100 text-slate-100 bg-orange-600 mt-6 px-6 py-2 my-2 rounded-md hover:scale-95 active:scale-90 transition-all ease duration-200'
                     >
                         Open Cart
