@@ -43,8 +43,8 @@ Also this project uploaded to Vercel [^_~](https://fortnite-shop-qcy.vercel.app/
 - Go to [API page](https://dash.fortnite-api.com/), login via Discord and get our API key
 - Then create `.env.local` in main directory
 - Add this variable with your key `API_KEY=your_API_key`
-- Now you can go to the terminal. Write two commands `npm install` (it will install all the dependencies) and `npm run dev` (it will start your local Vite server)
-- Open the link Vite gave for you
+- Now you can go to the terminal. Write two commands `npm install` (it will install all the dependencies) and `npm run dev` (it will start your local server)
+- Open the link from terminal
 - Done!
 
 P.s. Thank you for viewing my work (ಥ _ ಥ)
