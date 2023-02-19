@@ -5,6 +5,12 @@ import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper'
 
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/mousewheel'
+import 'swiper/css/autoplay'
+
 import { removeItem, changeQuantity } from '@/store/shopSlice'
 import { useDispatch } from 'react-redux'
 
