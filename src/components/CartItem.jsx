@@ -9,6 +9,7 @@ import { removeItem, changeQuantity } from '@/store/shopSlice'
 import { useDispatch } from 'react-redux'
 
 import useSound from 'use-sound'
+import Image from 'next/image'
 
 export function CartItem(props) {
     const { item } = props
@@ -43,10 +44,12 @@ export function CartItem(props) {
         <div className='relative flex flex-col md:flex-row justify-between px-3 py-2 mb-4 bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 rounded-md transition-color duration-100'>
             <div className='flex flex-col md:flex-row'>
                 <div className='overflow-hidden bg-transparent rounded-md aspect-none'>
-                    <img
+                    <Image
+                        className='object-cover object-center w-64 p-3'
                         src={image}
                         alt={name}
-                        className='object-cover object-center w-64 p-3'
+                        width={256}
+                        height={256}
                     />
                 </div>
                 <div className='mt-4'>
@@ -157,10 +160,12 @@ export function CartItemSlider(props) {
                     <SwiperSlide key={item.id}>
                         <div className='flex flex-col md:flex-row'>
                             <div className='overflow-hidden bg-transparent rounded-md aspect-none'>
-                                <img
+                                <Image
+                                    className='object-cover object-center w-64 p-3'
                                     src={item.images.featured || item.images.icon}
                                     alt={item.name}
-                                    className='object-cover object-center w-64 p-3'
+                                    width={256}
+                                    height={256}
                                 />
                             </div>
                             <div className='mt-4'>

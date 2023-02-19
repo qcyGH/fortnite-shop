@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export function NewsItem(props) {
     const {
         title,
@@ -8,10 +10,12 @@ export function NewsItem(props) {
     return (
         <div className='flex flex-col md:flex-row relative bg-zinc-200 dark:bg-zinc-800 rounded-lg shadow-lg shadow-zinc-400/50 dark:shadow-zinc-900/50 w-full h-max hover:shadow-none hover:scale-95 transition-all duration-150 ease-in'>
             <div className='flex items-center justify-center overflow-hidden rounded-md md:rounded-t-md md:rounded-b bg-zinc-200 dark:bg-zinc-800 aspect-none transition-all duration-150 ease-in'>
-                <img
+                <Image
+                    className='object-cover object-center w-full max-w-sm rounded-md md:rounded-t-md md:rounded-b md:pr-3'
                     src={image}
                     alt={title}
-                    className='object-cover object-center w-full max-w-sm rounded-md md:rounded-t-md md:rounded-b md:pr-3'
+                    width={384}
+                    height={186}
                 />
             </div>
             <div className='flex flex-col p-3 mt-3 md:mt-0'>

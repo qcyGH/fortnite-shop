@@ -1,15 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.mp3$/,
-      use: {
-        loader: 'file-loader',
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'fortnite-api.com',
+        port: '',
+        pathname: '/images/**',
       },
-    });
-
-    return config
+      {
+        protocol: 'https',
+        hostname: 'cdn2.unrealengine.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.fortnite-api.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 }
 

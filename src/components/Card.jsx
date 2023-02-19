@@ -1,9 +1,12 @@
 import React from 'react'
+import useSound from 'use-sound'
 import { useDispatch } from 'react-redux'
 import { addItem } from '@/store/shopSlice'
+import Image from 'next/image'
 
 import { BundleModal } from './BundleModal'
 
+import { useToast } from '@chakra-ui/react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, Mousewheel } from 'swiper'
 
@@ -12,10 +15,6 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/autoplay'
 import 'swiper/css/mousewheel'
-
-import useSound from 'use-sound'
-
-import { useToast } from '@chakra-ui/react'
 
 export function Card(props) {
     const {
@@ -56,10 +55,12 @@ export function Card(props) {
     return (
             <div className='relative bg-zinc-200 dark:bg-zinc-800 rounded-lg shadow-lg shadow-zinc-400/50 dark:shadow-zinc-900/50 w-max h-max hover:shadow-none hover:scale-95 transition-all duration-150 ease-in'>
                 <div className='overflow-hidden rounded-t-md rounded-b bg-zinc-200 dark:bg-zinc-800 aspect-none transition-all duration-150 ease-in'>
-                    <img
+                    <Image
+                        className='object-cover object-center w-72'
                         src={image || images.featured || images.icon}
                         alt={name}
-                        className='object-cover object-center w-72'
+                        width={288}
+                        height={288}
                     />
                 </div>
                 <div className='flex flex-col justify-between max-w-[264px] p-3'>
@@ -145,10 +146,12 @@ export function CardSlider(props) {
                         items.map(item => (
                             <SwiperSlide key={item.id}>
                                 <div className='overflow-hidden rounded-t-md rounded-b p-3 bg-zinc-200 dark:bg-zinc-800 aspect-none transition-all duration-150 ease-in'>
-                                    <img
+                                    <Image
+                                        className='object-cover object-center w-72 rounded-md'
                                         src={item.images.featured || item.images.icon}
                                         alt={item.name}
-                                        className='object-cover object-center w-72 rounded-md'
+                                        width={288}
+                                        height={288}
                                     />
                                 </div>
                                 <div className='flex flex-col p-3'>

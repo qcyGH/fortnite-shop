@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { removeItem } from '@/store/shopSlice'
 
 import useSound from 'use-sound'
+import Image from 'next/image'
 
 export function CartModal(props) {
     const { items = [], show, closeModalOutside, closeModal } = props
@@ -66,7 +67,12 @@ export function CartModal(props) {
                             items.map(item => (
                                 <div key={item.id} className='flex relative py-4 px-4 pr-12'>
                                     <div className='bg-zinc-200/30 dark:bg-zinc-900/30 hover:bg-zinc-200/90 dark:hover:bg-zinc-900/90 overflow-hidden rounded-md transition-color duration-100'>
-                                        <img className='w-20 h-20' src={item.image || item.items[0].images.featured} alt={item.name} />
+                                        <Image
+                                            src={item.image || item.items[0].images.featured}
+                                            alt={item.name}
+                                            width={80}
+                                            height={80}
+                                        />
                                     </div>
                                     <div className='flex flex-col pl-3 pr-4 py-2'>
                                         <span>{item.name}</span>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { NewsList } from '@/components/NewsList'
 import { PreloaderNews } from '@/components/Preloader'
+import Image from 'next/image'
 
 export default function News(props) {
 
@@ -30,7 +31,14 @@ export default function News(props) {
             </h2>
           }
           {
-            props.data?.data.br?.image && <img className='mt-5 rounded-lg shadow-lg shadow-zinc-400/50 dark:shadow-zinc-900/50 w-max h-max hover:shadow-none hover:scale-95 transition-all duration-150 ease-in' src={props.data?.data.br.image} alt='fortnite battle pass'/>
+            // i can`t use Image by Next, because its makes image too small
+            props.data?.data.br?.image && <img
+              className='mt-5 rounded-lg shadow-lg shadow-zinc-400/50 dark:shadow-zinc-900/50 w-max h-max hover:shadow-none hover:scale-95 transition-all duration-150 ease-in'
+              src={props.data?.data.br.image}
+              alt='fortnite battle pass'
+
+              priority
+            />
           }
           {
             props.data?.data.br?.messages &&<NewsList items={props.data?.data.br.messages} />
@@ -46,7 +54,13 @@ export default function News(props) {
               </h2>
             }
             {
-              props.data?.data.stw?.image && <img className='mt-5 rounded-md' src={props.data?.data.stw.image} alt='fortnite save the world'/>
+              props.data?.data.stw?.image && <Image
+                className='mt-5 rounded-md'
+                src={props.data?.data.stw.image}
+                alt='fortnite save the world'
+                width={1180}
+                height={664}
+              />
             }
             {
               props.data?.data.stw?.messages &&<NewsList items={props.data?.data.stw.messages} />
