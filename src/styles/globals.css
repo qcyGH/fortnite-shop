@@ -105,7 +105,7 @@ a.active {
 
 @media screen and (min-width: 768px) {
   .cart__item .swiper-horizontal > .swiper-pagination-bullets {
-    bottom: 0;
+    bottom: 0 !important;
   }
 
 }
