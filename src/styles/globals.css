@@ -18,30 +18,30 @@ body {
 /* container alternative */
 /* https://habr.com/ru/post/463923/ */
 
-section{
+section.content{
   padding: 25px 15px;
 }
 
 @media (min-width: 575.98px){
-  section {
+  section.content {
     padding: 25px calc(50% - 270px);
   }
 }
 
 @media (min-width: 767.98px){
-  section {
+  section.content {
     padding: 25px calc(50% - 360px);
   }
 }
 
 @media (min-width: 991.98px) {
-  section {
+  section.content {
     padding: 25px calc(50% - 480px);
   }
 }
 
 @media (min-width: 1199.98px){
-  section {
+  section.content {
     padding: 25px calc(50% - 590px);
   }
 }

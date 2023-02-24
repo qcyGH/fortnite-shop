@@ -22,10 +22,8 @@ export function User(props) {
     )
 
     const closeModalOutside = (e) => {
-        console.log(e.composedPath().includes(userRef.current))
         if (!e.composedPath().includes(userRef.current)) {
-            console.log(e.target)
-            console.log('Close modal')
+
             setShowModal(false)
         }
     }

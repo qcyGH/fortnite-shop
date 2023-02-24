@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router';
-import { CloseButton } from '@chakra-ui/react'
-
 import { useSelector, useDispatch } from 'react-redux'
+import Link from 'next/link'
+
+import { CloseButton } from '@chakra-ui/react'
 import { signout } from '@/store/userSlice'
+import Login from './Login'
+
 
 export function UserModal(props) {
-    //const location = useRouter()
     const user = useSelector(state => state.user.user)
     const { show, closeModalOutside, closeModal } = props
     const rootUserModal = useRef(null)
@@ -48,9 +48,7 @@ export function UserModal(props) {
                                 <button onClick={() => dispatch(signout())} className='mt-4 text-zinc-700 leading-none hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150'>
                                     Sign out
                                 </button>
-                            </div> : <Link className='opacity-100 pr-6 text-zinc-700 leading-none hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 ease-in duration-150' href='/login'>
-                                        Login
-                            </Link>
+                            </div> : <Login />
                 }
                 <span className='absolute top-1 right-1'>
                     <CloseButton

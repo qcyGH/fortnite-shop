@@ -14,7 +14,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 
 import Link from 'next/link'
-import { ThemeSwitcher } from './ThemeSwitcher_old'
+import { ThemeSwitcher } from './ThemeSwitcher'
 import { User } from './User'
 
 import useSound from 'use-sound'
