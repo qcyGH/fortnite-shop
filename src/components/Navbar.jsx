@@ -75,7 +75,7 @@ export default function NavBar(props) {
                     <ThemeSwitcher />
                 </li>
             </ul>
-            <MobileMenu/>
+            <MobileMenu />
         </header>
     )
 }

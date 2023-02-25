@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import {
     Drawer,
     DrawerBody,
@@ -14,7 +14,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 
 import Link from 'next/link'
-import { ThemeSwitcher } from './ThemeSwitcher'
+import ThemeSwitcher from './ThemeSwitcher'
 import { User } from './User'
 
 import useSound from 'use-sound'
@@ -22,7 +22,7 @@ import useSound from 'use-sound'
 export function MobileMenu() {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = React.useRef()
+    const btnRef = useRef()
 
     const CartIcon = (props) => (
         <Icon viewBox='0 0 18 17' {...props}>
@@ -42,16 +42,18 @@ export function MobileMenu() {
             <IconButton
                 position='absolute'
                 bg='transparent'
+                boxSize='36px'
+                minW='36px'
                 _active={{ bg: 'transparent' }}
                 _hover={{ bg: 'transparent' }}
                 display={{ sm: 'inline-block', md: 'none'}}
                 className='absolute top-[50%] right-5 translate-y-[-50%] text-zinc-100 dark:text-zinc-900'
                 ref={btnRef}
                 onClick={() => {
-                    playSound()
                     onOpen()
+                    playSound()
                 }}
-                icon={<HamburgerIcon className='bg-purple-700 p-[10px] rounded-md' boxSize='40px'/>}
+                icon={<HamburgerIcon className='bg-purple-700 p-[9px] rounded-md' boxSize='36px'/>}
             />
             <Drawer
                 isOpen={isOpen}
