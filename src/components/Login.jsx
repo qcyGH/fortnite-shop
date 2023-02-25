@@ -115,13 +115,13 @@ export function RequireLogin({ children }) {
               Login
             </ModalHeader>
             <ModalCloseButton />
-            <ModalBody className="flex flex-col">
-              <span className="text-center opacity-70">
+            <ModalBody className="flex flex-col mt-4">
+              <span className="text-center opacity-60">
                 Login to use the cart
               </span>
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col items-center mt-8 mb-4"
+                className="flex flex-col items-center mt-4 mb-4"
               >
                 <label className="text-zinc-50 dark:text-zinc-800 bg-zinc-800 dark:bg-zinc-50 rounded-lg px-3 transition-all duration-150 ease-in">
                   Name:{" "}
