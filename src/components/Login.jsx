@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef } from "react"
 
-import { useDispatch, useSelector } from "react-redux";
-import { signin } from "@/store/userSlice";
+import { useDispatch, useSelector } from "react-redux"
+import { signin } from "@/store/userSlice"
 
 import {
   Modal,
@@ -14,12 +14,13 @@ import {
   useDisclosure,
   Button,
   useColorModeValue,
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 
-import useSound from "use-sound";
+import useSound from "use-sound"
 
 export default function Login() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const bgColor = useColorModeValue("#E4E4E7", "#18181B")
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -47,7 +48,7 @@ export default function Login() {
         motionPreset="slideInBottom"
       >
         <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
-        <ModalContent bg={useColorModeValue("#E4E4E7", "#18181B")}>
+        <ModalContent bg={bgColor}>
           <ModalHeader className="text-center text-3xl font-semibold text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in">
             Login
           </ModalHeader>
@@ -81,7 +82,8 @@ export default function Login() {
 }
 
 export function RequireLogin({ children }) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const bgColor = useColorModeValue("#E4E4E7", "#18181B")
   const user = useSelector((state) => state.user.user);
 
   const { onClose } = useDisclosure();
@@ -110,7 +112,7 @@ export function RequireLogin({ children }) {
           isCentered
         >
           <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
-          <ModalContent bg={useColorModeValue("#E4E4E7", "#18181B")}>
+          <ModalContent bg={bgColor}>
             <ModalHeader className="text-center text-3xl font-semibold text-gray-700 dark:text-gray-200 transition-color duration-150 ease-in">
               Login
             </ModalHeader>
